@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ufpbqtdp0vss"
-path="res://.godot/imported/snowman.png-f24dc1d29a8e28f23dcd9401e57bc975.ctex"
+uid="uid://dkhjbe4sx450f"
+path="res://.godot/imported/dungeon tile.png-d97d0c698f7263c9460fca82b7e5f26f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/player/snowman.png"
-dest_files=["res://.godot/imported/snowman.png-f24dc1d29a8e28f23dcd9401e57bc975.ctex"]
+source_file="res://sprites/tilesets/dungeon tile.png"
+dest_files=["res://.godot/imported/dungeon tile.png-d97d0c698f7263c9460fca82b7e5f26f.ctex"]
 
 [params]
 
