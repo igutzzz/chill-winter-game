@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0aa061j4ppgf"
-path="res://.godot/imported/dungeon tile.png-d97d0c698f7263c9460fca82b7e5f26f.ctex"
+uid="uid://4qunn5ah6jqi"
+path="res://.godot/imported/christmas.png-b54daee69b7884d611f6750fb37ca2e7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/tilesets/dungeon tile.png"
-dest_files=["res://.godot/imported/dungeon tile.png-d97d0c698f7263c9460fca82b7e5f26f.ctex"]
+source_file="res://sprites/tilesets/christmas.png"
+dest_files=["res://.godot/imported/christmas.png-b54daee69b7884d611f6750fb37ca2e7.ctex"]
 
 [params]
 

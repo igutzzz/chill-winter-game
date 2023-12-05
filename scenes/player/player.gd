@@ -4,9 +4,10 @@ const MAX_SPEED = 100
 const ACCELERATION = 500
 const FRICTION = 500
 
-
+@onready var attack_timer = $AttackTimer
 @onready var animation_tree = $AnimationTree
 @onready var animation_state = animation_tree.get("parameters/playback")
+@export var BALL = preload("res://scenes/projectiles/snowball.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -28,7 +29,19 @@ func _process(delta):
 	else:
 		animation_state.travel("idle")
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
-
+		
+	if Input.is_action_just_pressed("attack") && attack_timer.is_stopped():
+		var ball_direction = self.global_position.direction_to(get_global_mouse_position())
+		throw_ball(ball_direction)
 	
 	
 	move_and_slide()
+	
+func throw_ball(direction: Vector2):
+	if BALL:
+		var ball = BALL.instantiate()
+		get_tree().current_scene.add_child(ball)
+		ball.global_position = self.global_position
+		var rotation = direction.angle()
+		ball.rotation = rotation * 0.95
+		attack_timer.start()	
