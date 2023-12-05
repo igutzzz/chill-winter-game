@@ -8,6 +8,7 @@ const FRICTION = 500
 @onready var animation_tree = $AnimationTree
 @onready var animation_state = animation_tree.get("parameters/playback")
 @export var BALL = preload("res://scenes/projectiles/snowball.tscn")
+@export var min_accuracy = 0.9
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -38,10 +39,12 @@ func _process(delta):
 	move_and_slide()
 	
 func throw_ball(direction: Vector2):
+	var rand_accuracy = randf_range(min_accuracy, 1)
+	print(rand_accuracy)
 	if BALL:
 		var ball = BALL.instantiate()
 		get_tree().current_scene.add_child(ball)
 		ball.global_position = self.global_position
 		var rotation = direction.angle()
-		ball.rotation = rotation * 0.95
+		ball.rotation = rotation * rand_accuracy
 		attack_timer.start()	
