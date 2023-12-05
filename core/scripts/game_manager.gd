@@ -4,6 +4,7 @@ class_name GameManager
 var enemy =  preload("res://scenes/enemies/enemy.tscn")
 @onready var spawn = $SpawnArea/CollisionShape2D
 @onready var spawn_area = $SpawnArea
+@onready var player = $Player
 
 
 @export var player_life: int = 3
