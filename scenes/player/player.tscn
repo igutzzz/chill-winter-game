@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bh4vjet4rothy"]
+[gd_scene load_steps=31 format=3 uid="uid://bh4vjet4rothy"]
 
 [ext_resource type="Texture2D" uid="uid://ufpbqtdp0vss" path="res://sprites/player/snowman.png" id="1_ewp1j"]
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_y41hv"]
@@ -463,6 +463,12 @@ states/walk/node = SubResource("AnimationNodeBlendSpace2D_ng0a2")
 states/walk/position = Vector2(508, 114)
 transitions = ["idle", "walk", SubResource("AnimationNodeStateMachineTransition_gpi5s"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_2j4uh"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_hoqjk")]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_r655f"]
+radius = 40.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_22npu"]
+radius = 20.0
+
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_y41hv")
 
@@ -503,3 +509,19 @@ parameters/walk/blend_position = Vector2(0, 0)
 [node name="AttackTimer" type="Timer" parent="."]
 wait_time = 0.18
 one_shot = true
+
+[node name="Atract" type="Area2D" parent="." groups=["player"]]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Atract"]
+shape = SubResource("CircleShape2D_r655f")
+
+[node name="Atack" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Atack"]
+shape = SubResource("CircleShape2D_22npu")
+
+[connection signal="body_entered" from="Atract" to="." method="_on_atract_body_entered"]
+[connection signal="body_exited" from="Atract" to="." method="_on_atract_body_exited"]
+[connection signal="body_entered" from="Atack" to="." method="_on_atack_body_entered"]
+[connection signal="body_exited" from="Atack" to="." method="_on_atack_body_exited"]

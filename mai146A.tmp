@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://baxxug8b461al" path="res://sprites/tilesets/dungeon tile blue.png" id="4_c8mht"]
 [ext_resource type="PackedScene" uid="uid://1w843bcf3322" path="res://scenes/enemies/enemy.tscn" id="5_vclp1"]
 [ext_resource type="Texture2D" uid="uid://b4xd7ybdu1k25" path="res://sprites/tilesets/dungeon tile red.png" id="5_vgx4g"]
-[ext_resource type="PackedScene" uid="uid://yxxasr4ltnwn" path="res://core/base/spawn_area.tscn" id="8_k6cfr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8i078"]
 texture = ExtResource("2_y3yc8")
@@ -1348,16 +1347,17 @@ sources/4 = SubResource("TileSetAtlasSource_66exp")
 sources/1 = SubResource("TileSetAtlasSource_pdwcf")
 sources/2 = SubResource("TileSetAtlasSource_oyeby")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6kec5"]
+size = Vector2(241.5, 158)
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_wac6r")
 player_life = null
-playerPath = null
-enemy_base_life = 5
+enemy_base_life = 3
 enemy_Count = 10
-enemy_radius = null
 
 [node name="Player" parent="." instance=ExtResource("1_pu88x")]
-position = Vector2(247, 382)
+position = Vector2(247, 626)
 
 [node name="TileMap" type="TileMap" parent="."]
 z_index = -1
@@ -1371,4 +1371,9 @@ layer_0/tile_data = PackedInt32Array(851976, 196612, 3, 786440, 196612, 1, 85197
 visible = false
 position = Vector2(318, 264)
 
-[node name="SpawnArea" parent="." instance=ExtResource("8_k6cfr")]
+[node name="SpawnArea" type="Area2D" parent="."]
+position = Vector2(246, 288)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnArea"]
+position = Vector2(6.25, -1)
+shape = SubResource("RectangleShape2D_6kec5")

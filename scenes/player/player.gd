@@ -48,3 +48,20 @@ func throw_ball(direction: Vector2):
 		var rotation = direction.angle()
 		ball.rotation = rotation * rand_accuracy
 		attack_timer.start()	
+
+
+func _on_atract_body_entered(body):
+	if(body.is_in_group("enemy")):
+		print('ai o inimigo')
+
+
+func _on_atract_body_exited(body):
+	pass # Replace with function body.
+
+
+func _on_atack_body_entered(body):
+	pass # Replace with function body.
+
+
+func _on_atack_body_exited(body):
+	pass # Replace with function body.
